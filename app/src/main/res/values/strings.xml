@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Github Kenyans</string>
+    <string name="username_placeholder">UserName</string>
+    <string name="followers_placeholder">Followers</string>
+    <string name="link_placeholder">Link</string>
+
+    //Sample data
+    <string name="sampleLogin">sampbetascribbles</string>
+    <string name="sampleAvatarUrl">https://avatars.githubusercontent.com/u/52955271?v=4</string>
+    <string name="sampFollowers">5</string>
+    <string name="sampleUserLink">https://github.com/betascribbles</string>
+    <string name="Hello">Hello World!</string>
+
+    //Placeholder value set 1
+    <string name="vS1.user">sampmarsdenmadoka</string>
+    <string name="vS1.followers">20</string>
+
+    <string name="vS1.avatar">https://github.com/marsdenmadoka</string>
+    <string name="vS1.link">https://avatars.githubusercontent.com/u/49446992?v=4</string>
+
+    //Placeholder value set 2
+
+    <string name="vS2.user">sampLucky-Tsuma</string>
+
+    <string name="vS2.followers">100</string>
+    <string name="vS2.avatar">https://avatars.githubusercontent.com/u/55623011?v=4</string>
+    <string name="vS2.link">https://github.com/Lucky-Tsuma</string>
+
+</resources>
