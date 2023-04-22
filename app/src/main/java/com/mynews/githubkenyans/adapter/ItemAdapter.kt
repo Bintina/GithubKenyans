@@ -8,10 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mynews.githubkenyans.R
 import com.mynews.githubkenyans.model.Item
+import com.mynews.githubkenyans.model.NrbJavaDeveloper
 
-class ItemAdapter(private val context: Context, private val dataset: List<Item>) :
+class ItemAdapter(private val context: Context, private val dataset: NrbJavaDeveloper) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
+   val items = dataset.items
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val userView: TextView = view.findViewById(R.id.tv_username)
@@ -26,11 +28,12 @@ class ItemAdapter(private val context: Context, private val dataset: List<Item>)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.userView.text = context.resources.getString(item.login)
-        holder.followersView.text = context.resources.getString(item.followers_url)
-        holder.linkView.text = context.resources.getString(item.html_url)
+        val item = items[position]
+
+        holder.userView.text = item.login
+        holder.followersView.text = item.followers_url
+        holder.linkView.text = item.html_url
     }
 
-    override fun getItemCount() = dataset.size
+    override fun getItemCount() = dataset.items.size
 }
