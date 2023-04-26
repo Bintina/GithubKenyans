@@ -10,10 +10,10 @@ import com.mynews.githubkenyans.R
 import com.mynews.githubkenyans.model.Item
 import com.mynews.githubkenyans.model.NrbJavaDeveloper
 
-class ItemAdapter(private val context: Context, private val dataset: NrbJavaDeveloper) :
+class ItemAdapter(private val context: Context) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-   val items = dataset.items
+   var items: List<Item> = mutableListOf<Item>()
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val userView: TextView = view.findViewById(R.id.tv_username)
@@ -35,5 +35,5 @@ class ItemAdapter(private val context: Context, private val dataset: NrbJavaDeve
         holder.linkView.text = item.html_url
     }
 
-    override fun getItemCount() = dataset.items.size
+    override fun getItemCount() = items.size
 }
