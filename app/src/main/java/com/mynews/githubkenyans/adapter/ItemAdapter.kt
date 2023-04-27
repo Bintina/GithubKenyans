@@ -4,18 +4,20 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mynews.githubkenyans.R
 import com.mynews.githubkenyans.model.Item
-import com.mynews.githubkenyans.model.NrbJavaDeveloper
+import com.squareup.picasso.Picasso
 
 class ItemAdapter(private val context: Context) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-   var items: List<Item> = mutableListOf<Item>()
+    var items: List<Item> = mutableListOf<Item>()
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        val avatarView: ImageView = view.findViewById(R.id.tv_avatar)
         val userView: TextView = view.findViewById(R.id.tv_username)
         val followersView: TextView = view.findViewById(R.id.tv_followers)
         val linkView: TextView = view.findViewById(R.id.tv_link)
@@ -29,6 +31,12 @@ class ItemAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
+        val itemAvatarUrl = item.avatar_url
+
+        Picasso.with(context)
+            .load(itemAvatarUrl)
+            .placeholder(R.drawable.ic_baseline_emoji_emotions_24)
+            .into(holder.avatarView)
 
         holder.userView.text = item.login
         holder.followersView.text = item.followers_url

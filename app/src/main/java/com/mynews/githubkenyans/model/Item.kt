@@ -1,12 +1,12 @@
 package com.mynews.githubkenyans.model
 
 data class Item(
+    val avatar_url: String,
     val login: String,
     val followers_url: String,
     val html_url: String
 ){
     /*
-    val avatar_url: Int,
     val events_url: String,
     val following_url: String,
     val gists_url: String,
