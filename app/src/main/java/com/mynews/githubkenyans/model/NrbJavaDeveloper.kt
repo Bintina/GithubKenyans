@@ -1,14 +1,18 @@
 package com.mynews.githubkenyans.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class NrbJavaDeveloper(
     val avatar_url: String,
     @SerializedName("login")
     val userName: String,
     val followers_url: String,
     val html_url: String
-){
+):Parcelable{
     /*
     val events_url: String,
     val following_url: String,

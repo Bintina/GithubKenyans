@@ -39,7 +39,10 @@ class MainActivity : AppCompatActivity(), OnDeveloperClickListener {
     }
 
     override fun openDetails(developer: NrbJavaDeveloper) {
-        startActivity(Intent(this, NrbJavaDetailsActivity::class.java))
+        val intent = Intent(this, NrbJavaDetailsActivity::class.java)
+        intent.putExtra("clicke_developer",developer)
+        startActivity(intent)
+
     }
 
 
