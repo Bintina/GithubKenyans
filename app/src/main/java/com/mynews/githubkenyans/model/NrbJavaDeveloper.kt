@@ -11,6 +11,7 @@ data class NrbJavaDeveloper(
     @SerializedName("login")
     val userName: String,
     val followers_url: String,
+    val organizations_url: String,
     val html_url: String
 ):Parcelable{
     /*
@@ -20,7 +21,6 @@ data class NrbJavaDeveloper(
     val gravatar_id: String,
     val id: Int,
     val node_id: String,
-    val organizations_url: String,
     val received_events_url: String,
     val repos_url: String,
     val score: Double,

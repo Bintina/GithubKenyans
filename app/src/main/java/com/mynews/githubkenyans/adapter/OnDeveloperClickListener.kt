@@ -4,7 +4,7 @@ import com.mynews.githubkenyans.model.NrbJavaDeveloper
 
 interface OnDeveloperClickListener {
 
-    fun openDetails(developer: NrbJavaDeveloper)
+    fun openDetails(clickedDeveloper: NrbJavaDeveloper)
 
     fun openLink(link: String)
 

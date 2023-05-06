@@ -44,7 +44,6 @@ class DeveloperAdapter(private val context: Context) :
         val developerAvatarUrl = developerInPosition.avatar_url
 
         //Card container holder
-        holder.container.setOnClickListener{listener.openDetails(developerInPosition)}
         //holder.userView.setOnClickListener{listener.openLink(item.userName)}
 
         //Image holder
@@ -55,12 +54,14 @@ class DeveloperAdapter(private val context: Context) :
 
         //User holder
         holder.userView.text = developerInPosition.userName
+        holder.userView.setOnClickListener { listener.openDetails(developerInPosition) }
 
         //Followers holder
         holder.followersView.text = developerInPosition.followers_url
 
         //Followers holder
         holder.linkView.text = developerInPosition.html_url
+        holder.linkView.setOnClickListener { listener.openLink(developerInPosition.html_url) }
     }
 
     override fun getItemCount() = listNrbJavaDeveloper.size

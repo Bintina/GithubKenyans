@@ -1,67 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/design_default_color_secondary_variant"
     tools:context=".controller.NrbJavaDetailsActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
+
+
+
 
         <ImageView
             android:id="@+id/user_image_header"
-            android:layout_width="match_parent"
-            android:layout_height="310dp"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
             android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:padding="10dp"
             android:scaleType="fitXY" />
 
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf ="@+id/user_image_header"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:text= "@string/app_name"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/header"
-            android:padding="10dp"
             android:layout_marginTop="3dp"
+            android:padding="10dp"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/githublink"
+            android:id="@+id/github_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf ="@+id/username"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/link_placeholder"
             android:gravity="center"
-            android:textSize="25sp"
+            android:text="@string/link_placeholder"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/link"
+            android:id="@+id/organizations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/githublink"
-            android:padding ="10dp"
             android:layout_marginTop="3dp"
+            android:padding="10dp"
             android:textSize="20sp" />
 
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Back"
+            android:textSize="25sp" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

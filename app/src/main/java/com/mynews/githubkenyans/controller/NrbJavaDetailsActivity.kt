@@ -1,5 +1,7 @@
 package com.mynews.githubkenyans.controller
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.util.Linkify
 import androidx.appcompat.app.AppCompatActivity
@@ -20,9 +22,12 @@ class NrbJavaDetailsActivity : AppCompatActivity() {
         binding = ActivityNrbJavaDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        developer = intent.getParcelableExtra("clicked_developer")!!
+
         val avatarUrl = developer.avatar_url
         val username = developer.userName
         val link = developer.html_url
+        val organizations = developer.organizations_url
 
         //Image
         Picasso.with(this)
@@ -35,8 +40,17 @@ class NrbJavaDetailsActivity : AppCompatActivity() {
         binding.username.text = username
 
         //Github link
-        binding.githublink.text = link
-        Linkify.addLinks(binding.githublink, Linkify.WEB_URLS)
+        binding.githubLink.text = link
+        Linkify.addLinks(binding.githubLink, Linkify.WEB_URLS)
+
+        //Organizations
+        binding.organizations.text = organizations
+
+        //Back button
+        binding.backButton.setOnClickListener{
+
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
 }
