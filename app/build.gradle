@@ -52,7 +52,13 @@ dependencies {
     //Glidedependancy
     implementation'com.github.bumptech.glide:glide:4.15.1'
 
-    //Image depenencies
+    //Image dependencies
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.squareup.picasso:picasso:2.4.0'
+
+    //coroutine dependencies
+    //comes with main dispatcher
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
+    //comes with the core functions that the language provides
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 }
