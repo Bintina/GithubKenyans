@@ -12,7 +12,7 @@ import retrofit2.http.GET
 
     interface ApiInterface {
         @GET(Constants.NRB_JAVA_END_URL)
-         suspend fun getDevelopers() : Response<NrbJavaDevelopers>
+         suspend fun getDevelopers() : Response<NrbJavaDevelopers?>
 
 
     }

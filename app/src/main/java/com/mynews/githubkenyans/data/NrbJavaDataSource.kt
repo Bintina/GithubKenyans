@@ -11,8 +11,8 @@ import retrofit2.Response
 
 object NrbJavaDataSource {
     fun loadNrbJavaDevelopers(adapter: DeveloperAdapter) {
-       
-        val apiCall = RetrofitHelper.create().getDevelopers()
+
+        val apiCall = RetrofitHelper.create()
         apiCall.enqueue(object : retrofit2.Callback<NrbJavaDevelopers?> {
             override fun onResponse(
                 call: Call<NrbJavaDevelopers?>,
