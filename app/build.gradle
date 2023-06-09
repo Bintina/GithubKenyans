@@ -61,4 +61,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
     //comes with the core functions that the language provides
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+
+    //for lifecyclescope
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
 }
