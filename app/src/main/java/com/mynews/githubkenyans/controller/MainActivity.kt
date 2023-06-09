@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.text.util.Linkify
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.mynews.githubkenyans.R
 import com.mynews.githubkenyans.adapter.DeveloperAdapter
 import com.mynews.githubkenyans.adapter.OnDeveloperClickListener
@@ -17,7 +19,6 @@ class MainActivity : AppCompatActivity(), OnDeveloperClickListener {
 
     lateinit var binding: ActivityMainBinding
 
-
     lateinit var adapter: DeveloperAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity(), OnDeveloperClickListener {
         setContentView(binding.root)
         initializeList()
 
-        NrbJavaDataSource.loadNrbJavaDevelopers(adapter)
+        NrbJavaDataSource.loadNrbJavaDevelopers(this, adapter)
 
     }
 
@@ -55,9 +56,3 @@ class MainActivity : AppCompatActivity(), OnDeveloperClickListener {
 
 
 }
-
-/*
-private operator fun <T> Response<T>.get(i: Int): Item? {
-
-}
-*/

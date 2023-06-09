@@ -1,34 +1,34 @@
 package com.mynews.githubkenyans.data
 
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.mynews.githubkenyans.adapter.DeveloperAdapter
-import com.mynews.githubkenyans.api.ApiInterface
-import com.mynews.githubkenyans.api.DeveloperApiInterface
 import com.mynews.githubkenyans.api.RetrofitHelper
-import com.mynews.githubkenyans.model.NrbJavaDevelopers
-import retrofit2.Call
-import retrofit2.Response
+import com.mynews.githubkenyans.controller.MainActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 object NrbJavaDataSource {
-    fun loadNrbJavaDevelopers(adapter: DeveloperAdapter) {
+    fun loadNrbJavaDevelopers(activity: AppCompatActivity, adapter: DeveloperAdapter) {
 
         val apiCall = RetrofitHelper.create()
-        apiCall.enqueue(object : retrofit2.Callback<NrbJavaDevelopers?> {
-            override fun onResponse(
-                call: Call<NrbJavaDevelopers?>,
-                response: Response<NrbJavaDevelopers?>
-            ) {
-                val responseBody = response.body()!!
-                with(adapter) {
-                    listNrbJavaDeveloper = responseBody.items
-                    notifyDataSetChanged()
+
+        activity.lifecycleScope.launch(Dispatchers.IO) {
+            val response = try {
+                apiCall.getDevelopers()
+            } catch (e: Exception) {
+                Log.e("NrbJavaDataSource", e.message.toString())
+                null
+            }
+
+            response?.let {
+                withContext(Dispatchers.Main) {
+                    adapter.listNrbJavaDeveloper = it.items
+                    adapter.notifyDataSetChanged()
                 }
             }
-
-
-            override fun onFailure(call: Call<NrbJavaDevelopers?>, t: Throwable) {
-                Log.e("Failure Log", "OnFailure" + t.message)
-            }
-        })
+        }
     }
 }
